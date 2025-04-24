@@ -8,6 +8,7 @@ variable "location" {
 
 variable "address_prefixes" {
   type = list(string)
+  address_prefixes = ["10.0.1.0/24"]
 }
 
 variable "allocation_method" {
