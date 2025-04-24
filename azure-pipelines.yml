@@ -1,32 +1,23 @@
 trigger:
-  - main
+- main
 
 pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  ARM_CLIENT_ID: $(ARM_CLIENT_ID)
-  ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
-  ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
-  ARM_TENANT_ID: $(ARM_TENANT_ID)
+  TF_IN_AUTOMATION: true
 
 steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.x'
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: '1.5.0'
 
-  - task: TerraformInstaller@1
-    inputs:
-      terraformVersion: '1.5.0'
-
-  - script: |
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Azure-Lab'  # 🔁 Your service connection name
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
       terraform init
-    displayName: 'Terraform Init'
-
-  - script: |
       terraform plan -out=tfplan
-    displayName: 'Terraform Plan'
-
-  - script: |
       terraform apply -auto-approve tfplan
-    displayName: 'Terraform Apply'
