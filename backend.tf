@@ -1,8 +1,8 @@
 terraform {
   backend "azurerm" {
-    resource_group_name  = "terraform-backend-rg"
-    storage_account_name = "<your_storage_account>"
-    container_name       = "tfstate"
+    resource_group_name  = "Azure-Backend"
+    storage_account_name = "myazurelabstore2025"
+    container_name       = "tf-backend"
     key                  = "terraform.tfstate"
   }
 }
