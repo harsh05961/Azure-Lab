@@ -21,7 +21,7 @@ steps:
       -backend-config="access_key=$(TF_STORAGE_KEY)"
 
     terraform plan -out=tfplan
-    terraform apply -auto-approve tfplan
+    terraform destroy -auto-approve
   env:
     ARM_CLIENT_ID: $(ARM_CLIENT_ID)
     ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
