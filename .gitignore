@@ -8,7 +8,6 @@ terraform.exe
 # === Terraform ===
 *.tfstate
 *.tfstate.*
-*.tfvars
 .terraform/
 crash.log
 override.tf
