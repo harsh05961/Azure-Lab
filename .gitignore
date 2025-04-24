@@ -1,0 +1,56 @@
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform/
+terraform.exe
+*.yml
+*.yaml
+# === Terraform ===
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform/
+crash.log
+override.tf
+override.tf.json
+terraform.tfvars.json
+*.backup
+*.log
+*.tfplan
+
+# Ignore backend config if it contains secrets
+backend.tfvars
+
+# === Ansible ===
+*.retry
+*.log
+*.vault
+.secret
+.ssh/
+inventory.ini
+host_vars/
+group_vars/
+ansible.cfg  # If it contains secrets or system-specific settings
+
+# === SSH Keys (used by Ansible or Terraform) ===
+*.pem
+*.key
+*.pub
+id_rsa
+id_rsa.pub
+
+# === System/IDE files ===
+.DS_Store
+*.swp
+*.swo
+*.bak
+*.tmp
+.vscode/
+.idea/
+__pycache__/
+
+# === Python (if using scripts for automation) ===
+*.pyc
+.env
+.envrc
+venv/
